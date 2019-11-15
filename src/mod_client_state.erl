@@ -302,6 +302,7 @@ add_stream_feature(Features, Host) ->
 %%--------------------------------------------------------------------
 -spec init_csi_state(c2s_state()) -> c2s_state().
 init_csi_state(C2SState) ->
+    error_logger:info_msg("c2s_stream_started: Started:", [C2SState]),
     C2SState#{csi_state => active, csi_queue => queue_new()}.
 
 -spec enqueue_stanza(csi_type(), stanza(), c2s_state()) -> filter_acc().
